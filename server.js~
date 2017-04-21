@@ -1,0 +1,27 @@
+// server.js
+
+    // set up ========================
+    var express  = require('express');
+    var app      = express(); 
+    var http = require('http');
+    var bodyParser = require('body-parser');
+
+    // database conncetion
+    var Db = require('mongodb').Db;
+    var MongoClient = require('mongodb').MongoClient;
+    var Server = require('mongodb').Server;
+    var db = new Db('interview', new Server('localhost', 27017));
+
+    //configuaration
+    app.set('port',process.env.PORT || 3033);
+    
+   //middleware
+    app.use(bodyParser.urlencoded({'extended':'true'}));
+    app.use(bodyParser.json());
+    
+   //routes setup
+   require('./routes/module.js')(app,driver,model);
+    http.createServer(app).listen(app.get('port'),function(){
+        console.log('server is running on '+app.get('port'));
+    })
+

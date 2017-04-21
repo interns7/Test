@@ -1,0 +1,3 @@
+http://localhost:3033/user/ConsecutiveElements?array=1&array=2&array=4array=6&array=3&array=7&array=8
+
+http://localhost:3033/user/consecutiveDuplicate?str=aaaabcccddaab
